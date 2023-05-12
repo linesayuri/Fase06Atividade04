@@ -1,3 +1,9 @@
+<%@page language="java" 
+ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>     
+<jsp:useBean id="Restaurantes" scope="request" 
+             type="br.com.traveller.beans.Restaurantes"></jsp:useBean>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,12 +26,12 @@
 
     <div class="container">
         <div class="main-container">
-            <img src="./imagens/pecorino_logo.png" class="logo" alt="">
+            <img src="<c:out value="${Restaurantes.logo_Restaurante}"/>" class="logo" alt="">
             <div class="textos">
                 <div class="text-center mb-5">
 
-                    <h2 class="my-1">Pecorino</h2>
-                    <p>Bar & Trattoria </p>
+                    <h2 class="my-1"><c:out value="${Restaurantes.nome_Restaurante}"/></h2>
+                  
 
                     <div class=" tarja_dados">
                         <p class="p-3">Dados do Restaurante</p>
@@ -33,7 +39,7 @@
 
                     <div class="container-dados">
                         <div class="d-flex justify-content-center">
-                            <img src="./imagens/pecorino-bar-e-trattoria.jpg">
+                            <img src="<c:out value="${Restaurantes.foto_Restaurante}"/>">
                         </div>
 
                         <div class="dados">
@@ -42,25 +48,28 @@
                                 <div class="form-group">
                                     <label for="endereço" class="titulos">Endereço</label>
                                     <input type="text" class="form-control" id="endereço" name="nome"
-                                        value="Av. Ibirapuera, 3103 - Shopping Ibirapuera Piso Jurupis - Indianópolis, São Paulo - SP, 04029-200">
+                                        value="<c:out value="${Restaurantes.endereço}"/>">
                                     <label for="avaliação" class="titulos">Avaliação</label>
-                                    <input type="text" class="form-control" id="Avaliação" name="avaliação" value="10">
+                                    <input type="text" class="form-control" id="Avaliação" name="avaliação" value="<c:out value="${Restaurantes.avaliação}"/>">
                                     <label for="telefone" class="titulos">Telefone</label>
                                     <input type="text" class="form-control" id="Telefone" name="telefone"
-                                        value="(11) 4440-1314">
+                                        value="<c:out value="${Restaurantes.telefone}"/>">
                                     <label for="tipos de comida" class="titulos">Tipos de Comida</label>
                                     <input type="text" class="form-control" id="tipos de comida" name="tipos de comida"
-                                        value="Diversas">
+                                        value="<c:out value="${Restaurantes.tipo_Comida}"/>">
                                     <label for="site" class="titulos">Site</label>
                                     <input type="text" class="form-control" id="site" name="site"
-                                        value="www.pecorino.com.br">
+                                        value="<c:out value="${Restaurantes.site}"/>">
                                     <label for="preço" class="titulos">Preço</label>
                                     <input type="text" class="form-control" id="preço" name="preço"
-                                        value="R$100,00 - R$300,00">
+                                        value="<c:out value="${Restaurantes.faixa_Preco}"/>">
+									<label for="preço" class="titulos">Funcionamento</label>
+                                    <input type="text" class="form-control" id="funcionamento" name="funcionamento"
+                                        value="<c:out value="${Restaurantes.funcionamento}"/>">
                                     <div class="form-group disabled">
                                     </div>
                                     <div class="botoes">
-                                        <button class="botao" id="site"> <a href="http://www.pecorino.com.br"
+                                        <button class="botao" id="site"> <a href="<c:out value="${Restaurantes.site}"/>"
                                                 target="blank">
                                                 Conheça Mais </a>
                                         </button>
